@@ -1,0 +1,88 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import 'animate.css';
+@import url(https://fonts.googleapis.com/css?family=Pacifico:regular);
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Montserrat;
+	background-color: #8ec5fc;
+	background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+}
+
+header {
+	
+	height: 10vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+main {
+	text-align: left;
+	margin: 0 auto;
+	background: rgba(255, 255, 255, 0.25);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	backdrop-filter: blur(4.5px);
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	height: 50vh;
+	width: 50vw;
+	padding: 40px 150px;
+	/* overflow: scroll; */
+}
+
+main ul {
+	font-weight: 600;
+	list-style-type: none;
+}
+
+main ul li {
+	margin-bottom: 10px;
+}
+
+main ul li::before {
+	content: '💬';
+	margin-right: 10px;
+}
+
+footer {
+	height: 50vh;
+	display: flex;
+	gap: 50px;
+	justify-content: center;
+	align-items: center;
+	font-weight: 600;
+}
+
+footer div {
+	display: flex;
+	flex-direction: column;
+}
+
+ 
+  .style-1 {
+	position: relative;
+	padding: 0.1em 1em;
+	background: linear-gradient(135deg, rgba(255,0,0,.2), rgba(0,0,255,.2));
+	border: none;
+	border-radius: 10px;
+	font-family: Pacifico;
+	font-size: 1.5em;
+	color: white;
+	text-shadow: 1px 2px 2px rgba(255,0,255,.2);
+	cursor: pointer;
+	text-align: center;
+	text-transform: capitalize;
+	transition: all .2s linear;
+  }
+  
+  .style-1:hover {
+	text-shadow: 2px 3px 4px rgba(0,0,255,.2);
+	padding: 0.2em 1em;
+  }

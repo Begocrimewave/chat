@@ -1,0 +1,69 @@
+<header>
+	<h1 class='animate__animated animate__rubberBand'>
+		😎 ChatBox 📩</h1>
+		<h2 id="numClientes">Clientes conectados: 0 </h2>
+</header>
+<main>
+	<ul id='mensajes'>
+		<li>Nuevo usuario</li>
+	</ul>
+</main>
+<footer>
+
+	<div>
+		<label>Nombre</label>
+		<input id='inputNombre' type='text' />
+	</div>
+	<div>
+		<label> Mensaje</label>
+		<input id='inputMensaje' type='text' />
+	</div>
+	<button id='btnEnviar' class="style-1"> Enviar</button>
+</footer>
+
+<script src='/socket.io/socket.io.js'></script>
+
+<script>
+	//Codigo JS de la parte cliente //Conectamos con el servidor de WS const
+	/**Cuando haga click en el boton mostrar un console.table con un objeto 
+	*/ 
+
+	socket = io(); 
+	const inputNombre = document.getElementById('inputNombre'); 
+	const inputMensaje = document.getElementById('inputMensaje'); 
+	const btnEnviar = document.getElementById('btnEnviar'); 
+	const mensajes = document.getElementById('mensajes');
+	const numClientes = document.getElementById('numClientes');
+	const objDiv = document.getElementById("main");
+       
+
+
+	btnEnviar.addEventListener('click', () => {
+	const data={ 
+		nombre: inputNombre.value, 
+		mensaje: inputMensaje.value 
+		}
+	socket.emit('mensaje_chat', data);
+	});
+
+
+	socket.on('mensaje_chat', (data)=>{
+		const li = document.createElement('li');
+		li.innerText = `${data.nombre}: ${data.mensaje}`;
+		li.className = 'animate__animated animate__bounce'
+		mensajes.append(li);
+		main.scrollTop = main.scrollHeight;
+	});
+
+	socket.on('clientes_chat',(data)=>{
+		//data es el numero de clientes conectados
+		//Modificar el H2 para que aparezcan los clientes conectados
+		numClientes.innerText = `Clientes conectados: ${data}`;
+
+	});
+	
+	//0. Crear el repositorio LOCAL
+	//1.Crear un repositorio en GITHUB
+	//2. Subir el codigo al repositorio en GITHUB
+	//3. Enlazar el proyecto de render.com con el repositorio GITHUB
+</script>
